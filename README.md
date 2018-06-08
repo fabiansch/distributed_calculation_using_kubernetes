@@ -38,3 +38,18 @@ Having done a Deployment, Kubernetes created a Pod to host your application inst
 - Pods are the atomic unit of Kubernetes
 
 ![Pods Overview](https://d33wubrfki0l68.cloudfront.net/fe03f68d8ede9815184852ca2a4fd30325e5d15a/98064/docs/tutorials/kubernetes-basics/public/images/module_03_pods.svg)
+
+## Kubernetes Node
+
+- each node is managed by the master
+- a node can have several pods
+- each node runs at least:
+  - a Kublet process that
+    - communicates between master and node
+    - manages pods and containers
+  - a container runtime that
+    - pulls container image from a registry
+    - unpacks the container
+    - runs the application
+
+![Node overview](https://d33wubrfki0l68.cloudfront.net/5cb72d407cbe2755e581b6de757e0d81760d5b86/a9df9/docs/tutorials/kubernetes-basics/public/images/module_03_nodes.svg)
