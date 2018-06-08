@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Distributed calculation using Kubernetes</title>
+    <meta charset="utf-8">
+    <style>
+      @import url('assets/fonts/fonts.css');
+
+      body { font-family: 'Droid Serif'; }
+      html * { font-size: 24px; }
+      ol, ul { line-height: 200%; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+        margin-top: 0px;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      th {
+        padding-right: 40px;
+      }
+      a {
+        font-size: inherit;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .img-intro {
+        width: 100%;
+        height: auto;
+      }
+      .my-list > li {
+        line-height: 200%;
+      }
+      .logo {
+        position: fixed;
+        width: 225px;
+        top: 20px;
+        right: 20px;
+      }
+      .banner {
+        position: fixed;
+        width: 89%;
+        height: 5px;
+        left: auto;
+        right: auto;
+        top: 97px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+layout: true
+name: header_and_banner
+
+<img src="assets/Hawhamburg-logo.svg" class="logo">
+<img src="assets/haw_banner.png" class="banner">
+
+
+---
+class: middle
+
+.center[
+# Distributed calculation using Kubernetes
+<br><br>
+Lasse Lüder & Fabian Schimke
+]
+
+---
+## Agenda
+
+1. Introduction
+1. Model Specs
+1. Generating test data with factories
+1. Request Specs
+1. Feature Specs
+
+---
+## 2. Model Specs - Anatomy
+
+1. Model's create method should be valid for valid attributes
+1. Data that fail validations should not be valid
+1. Class and instance methods should behave like expected
+
+--
+
+```
+describe Contact do
+* it "is valid with a firstname, lastname and email"
+  it "is invalid without a firstname"
+  it "is invalid without a lastname"
+  it "is invalid without an email address"
+  it "is invalid with a duplicate email address"
+  it "filter last name by letter"\
+     " returns a sorted array of results that match"
+end                             # spec/models/contact_spec.rb
+
+```
+???
+- example for a valid contact
+
+---
+## Literature
+
+- https://kubernetes.io
+
+.center[![:scale 60%](assets/kubernetes-logo.svg)]
+
+
+
+    </textarea>
+    <script src="assets/remark.min.js">
+    </script>
+    <script>
+      remark.macros.scale = function (percentage) {
+        var url = this;
+        return '<img src="' + url + '" style="width: ' + percentage + '" />';
+      };
+      var slideshow = remark.create({
+        ratio: '4:3',
+        highlightLanguage: 'ruby',
+        highlightStyle: 'monokai-sublime',
+        highlightLines: true,
+        navigation: {
+          scroll: false,
+        },
+        countIncrementalSlides: false
+      });
+
+    </script>
+
+
+  </body>
+</html>
