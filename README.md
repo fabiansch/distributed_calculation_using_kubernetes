@@ -77,5 +77,16 @@ A Kubernetes Service is an abstraction layer which defines a logical set of Pods
   - Classify an object using tags
 
 ![Services and Labels](https://d33wubrfki0l68.cloudfront.net/b964c59cdc1979dd4e1904c25f43745564ef6bee/f3351/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg)
-  
-  
+
+## Scaling an application
+
+- scaling is accomplished by changing the number of replicas in a Deployment
+- Kubernetes also supports autoscaling of Pods
+- Services have an integrated load-balancer that will distribute network traffic to all Pods
+- Services will monitor continuously the running Pods using endpoints, to ensure the traffic is sent only to available Pods
+
+Scaled to one Pod:
+![Scaling - one Pod](https://d33wubrfki0l68.cloudfront.net/043eb67914e9474e30a303553d5a4c6c7301f378/0d8f6/docs/tutorials/kubernetes-basics/public/images/module_05_scaling1.svg)
+
+Scaled to four Pods:
+![Scalinig - four Pods](https://d33wubrfki0l68.cloudfront.net/30f75140a581110443397192d70a4cdb37df7bfc/b5f56/docs/tutorials/kubernetes-basics/public/images/module_05_scaling2.svg)
