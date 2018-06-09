@@ -53,3 +53,29 @@ Having done a Deployment, Kubernetes created a Pod to host your application inst
     - runs the application
 
 ![Node overview](https://d33wubrfki0l68.cloudfront.net/5cb72d407cbe2755e581b6de757e0d81760d5b86/a9df9/docs/tutorials/kubernetes-basics/public/images/module_03_nodes.svg)
+
+## Kubernetes Services
+
+A Kubernetes Service is an abstraction layer which defines a logical set of Pods and enables external traffic exposure, load balancing and service discovery for those Pods.
+
+- services enable a loose coupling between dependent Pods
+- the set of pods of a service can be determined by a LabelSelector
+- through a ``type`` in the ServiceSpec a service can be exposed in different ways:
+  - ClusterIP (default) - Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.
+  - NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+  - LoadBalancer - Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.
+  - ExternalName - Exposes the Service using an arbitrary name (specified by externalName in the spec) by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of kube-dns.
+
+![Services and Labels](https://d33wubrfki0l68.cloudfront.net/cc38b0f3c0fd94e66495e3a4198f2096cdecd3d5/ace10/docs/tutorials/kubernetes-basics/public/images/module_04_services.svg)
+
+### Services and Labels
+
+- Services match a set of Pods using labels and selectors
+- Labels are key/value pairs attached to objects and can be used for:
+  - Designate objects for development, test, and production
+  - Embed version tags
+  - Classify an object using tags
+
+![Services and Labels](https://d33wubrfki0l68.cloudfront.net/b964c59cdc1979dd4e1904c25f43745564ef6bee/f3351/docs/tutorials/kubernetes-basics/public/images/module_04_labels.svg)
+  
+  
